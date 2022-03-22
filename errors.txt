@@ -1,0 +1,5 @@
+els blades s'han de fer?
+els blades de les vistes pot ser que continguin errors?
+com pot ser que si afegeixo un vol em diu que tots els camps son required quan envio?
+com puc fer perquè surti a escollir quina classe dels 3 enums vull?
+necessito fer els arxius .sql per afegir uns vols/clients/reserves/usuaris?
