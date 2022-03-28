@@ -24,7 +24,7 @@ class CreateVolsTable extends Migration
             $table->date("data_arribada");
             $table->time("hora_sortida");
             $table->time("hora_arribada");
-            $table->enum("Classe", ["Turista", "Bussiness", "Primera"]);
+            $table->enum("Classe", ["Turista", "Business", "Primera"]);
         });
     }
 

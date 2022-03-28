@@ -38,7 +38,7 @@
             <td>{{$voll->data_arribada}}</td>
             <td>{{$voll->hora_sortida}}</td>
             <td>{{$voll->hora_arribada}}</td>
-            <td>{{$voll->classe}}</td>
+            <td>{{$voll->Classe}}</td>
             <td class="text-left">
                 <a href="{{ route('vols.edit', $voll->codi_unic_vol)}}" class="btn btn-success btn-sm">Edita</a>
                 <form action="{{ route('vols.destroy', $voll->codi_unic_vol)}}" method="post" style="display: inline-block">

@@ -63,13 +63,15 @@
               <label for="Classe">Classe</label>
               <select class="form-control" name="Classe">
                 <option value="Turista">Turista</option>
-                <option value="Bussiness">Bussiness</option>
+                <option value="Business">Business</option>
                 <option value="Primera">Primera</option>
               </select>
             </div>
           <button type="submit" class="btn btn-primary">Envia</button>
+          <a href="{{ route('vols.index') }}" class="btn btn-warning" style="margin-left: 10px;">Torna a la llista</a>
       </form>
   </div>
 </div>
-<br><a href="{{ url('vols') }}">Accés directe a la Llista de vols</a>
+<br>
+
 @endsection

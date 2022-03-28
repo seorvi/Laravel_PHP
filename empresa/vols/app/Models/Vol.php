@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Vol extends Model
 {
     public $timestamps = false;
+    public $primaryKey = 'codi_unic_vol';
+    public $incrementing = false;
+
     use HasFactory;
     protected $fillable = [
         'codi_unic_vol',

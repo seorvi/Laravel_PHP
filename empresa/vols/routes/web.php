@@ -18,3 +18,6 @@ Route::get('/', function () {
 });
 
 Route::resource('vols', ControladorVol::class);
+Route::resource('clients', ControladorClient::class);
+Route::resource('usuaris', ControladorUsuaris::class);
+Route::resource('reservas', ControladorReserva::class);
