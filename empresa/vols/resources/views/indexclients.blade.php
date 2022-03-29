@@ -22,6 +22,7 @@
             <td>Email</td>
             <td>Tipus de targeta</td>
             <td>Numero de targeta</td>
+            <td>Accions</td>
         </tr>
     </thead>
     <tbody>
@@ -39,11 +40,14 @@
             <td>{{$cli->numero_targeta}}</td>
             <td class="text-left">
                 <a href="{{ route('clients.edit', $cli->passaport_client)}}" class="btn btn-success btn-sm">Edita</a>
+              </td>
+              <td class="text-left">
                 <form action="{{ route('clients.destroy', $cli->passaport_client)}}" method="post" style="display: inline-block">
                     @csrf
                     @method('DELETE')
                     <button class="btn btn-danger btn-sm" type="submit">Esborra</button>
                   </form>
+                  </td>
             </td>
         </tr>
         @endforeach

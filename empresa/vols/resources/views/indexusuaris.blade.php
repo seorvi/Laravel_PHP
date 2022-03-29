@@ -18,6 +18,7 @@
             <td>Tipus</td>
             <td>Darrera hora d'entrada</td>
             <td>Darrera hora de sortida</td>
+            <td>Accions</td>
         </tr>
     </thead>
     <tbody>
@@ -31,11 +32,14 @@
             <td>{{$usu->darrere_hora_sortida}}</td>
             <td class="text-left">
                 <a href="{{ route('usuaris.edit', $usu->email_usuari)}}" class="btn btn-success btn-sm">Edita</a>
+              </td>
+              <td class="text-left">
                 <form action="{{ route('usuaris.destroy', $usu->email_usuari)}}" method="post" style="display: inline-block">
                     @csrf
                     @method('DELETE')
                     <button class="btn btn-danger btn-sm" type="submit">Esborra</button>
                   </form>
+                </td>
             </td>
         </tr>
         @endforeach

@@ -18,52 +18,56 @@
             </ul>
         </div>
         @endif
-        <form method="post" action="{{ route('vols.update', $voll->id) }}">
+        <form method="post" action="{{ route('vols.update', $vol->codi_unic_vol) }}">
             <div class="form-group">
                 @csrf
                 @method('PATCH')
-                <label for="codivol">Codi unic de vol</label>
-                <input type="text" class="form-control" name="codivol" value="{{$voll->codi_unic_vol}}" />
+                <label for="codi_unic_vol">Codi unic de vol</label>
+                <input type="text" class="form-control" name="codi_unic_vol" readonly value="{{$vol->codi_unic_vol}}" />
             </div>
             <div>
-                <label for="modelavio">Model d'avio</label>
-                <input type="text" class="form-control" name="modelavio" value="{{$voll->model_avio}}" />
+                <label for="model_avio">Model d'avio</label>
+                <input type="text" class="form-control" name="model_avio" value="{{$vol->model_avio}}" />
             </div>
             <div>
-                <label for="ciutadorigen">Ciutat d'origen</label>
-                <input type="text" class="form-control" name="ciutadorigen" value="{{$voll->ciutat_origen}}" />
+                <label for="ciutat_origen">Ciutat d'origen</label>
+                <input type="text" class="form-control" name="ciutat_origen" value="{{$vol->ciutat_origen}}" />
             </div>
             <div>
-                <label for="ciutadesti">Ciutat de desti</label>
-                <input type="text" class="form-control" name="ciutadesti" value="{{$voll->ciutat_desti}}" />
+                <label for="ciutat_desti">Ciutat de desti</label>
+                <input type="text" class="form-control" name="ciutat_desti" value="{{$vol->ciutat_desti}}" />
             </div>
             <div>
-                <label for="terminalorigen">Terminal d'origen</label>
-                <input type="text" class="form-control" name="terminalorigen" value="{{$voll->terminal_origen}}" />
+                <label for="terminal_origen">Terminal d'origen</label>
+                <input type="text" class="form-control" name="terminal_origen" value="{{$vol->terminal_origen}}" />
             </div>
             <div>
-                <label for="terminaldesti">Terminal de desti</label>
-                <input type="text" class="form-control" name="terminaldesti" value="{{$voll->terminal_desti}}" />
+                <label for="terminal_desti">Terminal de desti</label>
+                <input type="text" class="form-control" name="terminal_desti" value="{{$vol->terminal_desti}}" />
             </div>
             <div>
-                <label for="datasortida">Data de sortida</label>
-                <input type="date" class="form-control" name="datasortida" value="{{$voll->data_sortida}}" />
+                <label for="data_sortida">Data de sortida</label>
+                <input type="date" class="form-control" name="data_sortida" value="{{$vol->data_sortida}}" />
             </div>
             <div>
-                <label for="dataarribada">Data d'arribada</label>
-                <input type="date" class="form-control" name="dataarribada" value="{{$voll->data_arribada}}" />
+                <label for="data_arribada">Data d'arribada</label>
+                <input type="date" class="form-control" name="data_arribada" value="{{$vol->data_arribada}}" />
             </div>
             <div>
-                <label for="horasortida">Hora de sortida</label>
-                <input type="time" class="form-control" name="horasortida" value="{{$voll->hora_sortida}}" />
+                <label for="hora_sortida">Hora de sortida</label>
+                <input type="time" class="form-control" name="hora_sortida" value="{{$vol->hora_sortida}}" />
             </div>
             <div>
-                <label for="horarribada">Hora d'arribada</label>
-                <input type="time" class="form-control" name="horarribada" value="{{$voll->hora_arribada}}" />
+                <label for="hora_arribada">Hora d'arribada</label>
+                <input type="time" class="form-control" name="hora_arribada" value="{{$vol->hora_arribada}}" />
             </div>
             <div>
-                <label for="classe">Classe</label>
-                <input type="text" class="form-control" name="classe" value="{{$voll->classe}}" />
+                <label for="Classe">Classe</label>
+                <select class="form-control" name="Classe" value="{{$vol->Classe}}">
+                    <option value="Turista">Turista</option>
+                    <option value="Business">Business</option>
+                    <option value="Primera">Primera</option>
+              </select>
             </div>
             <button type="submit" class="btn btn-block btn-danger">Actualitza</button>
         </form>

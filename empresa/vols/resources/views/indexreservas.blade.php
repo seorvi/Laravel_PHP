@@ -22,13 +22,14 @@
             <td>Tipus d'assegurançaa</td>
             <td>Preu del vol</td>
             <td>Tipus de checking</td>
+            <td>Accions</td>
         </tr>
     </thead>
     <tbody>
         @foreach($reserva as $rese)
         <tr>
-            <td>{{$rese->passaport_client_reserva}}</td>
-            <td>{{$rese->codi_unic_vol_reserva}}</td>
+            <td>{{$rese->passaport_client}}</td>
+            <td>{{$rese->codi_unic_vol}}</td>
             <td>{{$rese->localitzador}}</td>
             <td>{{$rese->numero_seient}}</td>
             <td>{{$rese->equipatge_ma}}</td>
@@ -38,12 +39,15 @@
             <td>{{$rese->preu_vol}}</td>
             <td>{{$rese->tipus_checking}}</td>
             <td class="text-left">
-                <a href="{{ route('reservas.edit', $rese->passaport_client_reserva)}}" class="btn btn-success btn-sm">Edita</a>
-                <form action="{{ route('reservas.destroy', $rese->passaport_client_reserva)}}" method="post" style="display: inline-block">
+                <a href="{{ route('reservas.edit', $rese->codi_unic_vol)}}" class="btn btn-success btn-sm">Edita</a>
+              </td>
+              <td class="text-left">
+                <form action="{{ route('reservas.destroy', $rese->codi_unic_vol)}}" method="post" style="display: inline-block">
                     @csrf
                     @method('DELETE')
                     <button class="btn btn-danger btn-sm" type="submit">Esborra</button>
                   </form>
+              </td>
             </td>
         </tr>
         @endforeach

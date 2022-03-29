@@ -20,13 +20,13 @@
     <form method="post" action="{{ route('reservas.store') }}">
           <div class="form-group">
               @csrf
-              <label for="passaport_client_reserva">Passaport del client</label>
-                <input type="text" class="form-control" name="passaport_client_reserva" />
+              <label for="passaport_client">Passaport del client</label>
+                <input type="text" class="form-control" name="passaport_client" />
                 <a href="{{ route('clients.index') }}">comprovar passaports</a>
             </div>
             <div class="form-group">
-                <label for="codi_unic_vol_reserva">Codi únic del vol</label>
-                <input type="text" class="form-control" name="codi_unic_vol_reserva" />
+                <label for="codi_unic_vol">Codi únic del vol</label>
+                <input type="text" class="form-control" name="codi_unic_vol" />
                 <a href="{{ route('vols.index') }}">comprovar números de vol</a>
             </div>
             <div class="form-group">

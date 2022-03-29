@@ -23,6 +23,7 @@
           <td>Hora de sortida</td>
           <td>Hora d'arribada</td>
           <td>Classe</td>
+          <td>Accions</td>
         </tr>
     </thead>
     <tbody>
@@ -41,11 +42,14 @@
             <td>{{$voll->Classe}}</td>
             <td class="text-left">
                 <a href="{{ route('vols.edit', $voll->codi_unic_vol)}}" class="btn btn-success btn-sm">Edita</a>
+              </td>
+              <td class="text-left">
                 <form action="{{ route('vols.destroy', $voll->codi_unic_vol)}}" method="post" style="display: inline-block">
                     @csrf
                     @method('DELETE')
                     <button class="btn btn-danger btn-sm" type="submit">Esborra</button>
                   </form>
+                  </td>
             </td>
         </tr>
         @endforeach

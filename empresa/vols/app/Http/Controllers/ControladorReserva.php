@@ -37,8 +37,8 @@ class ControladorReserva extends Controller
     public function store(Request $request)
     {
         $novaReserva = $request->validate([
-            'passaport_client_reserva' => 'required|string',
-            'codi_unic_vol_reserva' => 'required|string',
+            'passaport_client' => 'required|string',
+            'codi_unic_vol' => 'required|string',
             'localitzador' => 'required|string',
             'numero_seient' => 'required|string',
             'equipatge_ma' => 'required|string',
@@ -71,11 +71,10 @@ class ControladorReserva extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($codi_unic_vol)
     {
-        $reserva = Reserva::find($id);
-        return view('actualitza', compact('reservas'));
-        //crear blade que se llame editareservas
+        $reserva = Reserva::find($codi_unic_vol);
+        return view('actualitzareservas', compact('reserva'));
     }
 
     /**
@@ -85,11 +84,11 @@ class ControladorReserva extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $codi_unic_vol)
     {
         $dades = $request->validate([
-            'passaport_client_reserva' => 'required|string',
-            'codi_unic_vol_reserva' => 'required|string',
+            'passaport_client' => 'required|string',
+            'codi_unic_vol' => 'required|string',
             'localitzador' => 'required|string',
             'numero_seient' => 'required|string',
             'equipatge_ma' => 'required|string',
@@ -100,7 +99,7 @@ class ControladorReserva extends Controller
             'tipus_checking' => 'required|string',
         ]);
 
-        Reserva::where($id)->update($dades);
+        Reserva::wherecodi_unic_vol($codi_unic_vol)->update($dades);
         return redirect ('/reservas')->with('completed', 'Reserva actualitzada correctament');
     }
 
@@ -110,10 +109,11 @@ class ControladorReserva extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($codi_unic_vol)
     {
-        $reserva = Reserva::findOrFail($id);
+        $reserva = Reserva::findOrFail($codi_unic_vol);
         $reserva->delete();
         return redirect('/reservas')->with('completed', 'Reserva eliminada correctament');
     }
 }
+

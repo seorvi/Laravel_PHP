@@ -8,13 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Reserva extends Model
 {
     public $timestamps = false;
-    public $primaryKey = ["passaport_client_reserva", "codi_unic_vol_reserva"];
+    public $primaryKey = "codi_unic_vol";
     public $incrementing = false;
 
     use HasFactory;
     protected $fillable = [
-        'passaport_client_reserva',
-        'codi_unic_vol_reserva',
+        'passaport_client',
+        'codi_unic_vol',
         'localitzador',
         'numero_seient',
         'equipatge_ma',

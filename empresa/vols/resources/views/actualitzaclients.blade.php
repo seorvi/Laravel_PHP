@@ -18,7 +18,7 @@
             </ul>
         </div>
         @endif
-        <form method="post" action="{{ route('clients.update', $client->id) }}">
+        <form method="post" action="{{ route('clients.update', $client->passaport_client) }}">
             <div class="form-group">
                 @csrf
                 @method('PATCH')
@@ -55,9 +55,11 @@
             </div>
             <div class="form-group">
                 <label for="tipus_targeta">Tipus de targeta</label>
-                <input type="text" class="form-control" name="tipus_targeta" value="{{ $client->tipus_targeta }}" />
+                <select class ="form-control" name="tipus_targeta" value ="{{  $client->tipus_targeta }}">
+                    <option value="debit">Debit</option>
+                    <option value="credit">Credit</option>
+                </select>
             </div>
-            <div class="form-group">
                 <label for="numero_targeta">Numero de targeta</label>
                 <input type="text" class="form-control" name="numero_targeta" value="{{ $client->numero_targeta }}" />
             </div>

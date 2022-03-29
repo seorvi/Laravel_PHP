@@ -18,48 +18,62 @@
             </ul>
         </div>
         @endif
-        <form method="post" action="{{ route('reservas.update', $reservas->id) }}">
+        <form method="post" action="{{ route('reservas.update', $reserva->codi_unic_vol) }}">
             <div class="form-group">
                 @csrf
                 @method('PATCH')
-                <label for="passaport_client_reserva">Passaport del client</label>
-                <input type="text" class="form-control" name="passaport_client_reserva" value="{{ $reservas->passaport_client_reserva }}" />
+                <label for="passaport_client">Passaport del client</label>
+                <input type="text" class="form-control" readonly name="passaport_client" value="{{ $reserva->passaport_client }}" />
             </div>
             <div class="form-group">
-                <label for="codi_unic_vol_reserva">Codi únic del vol</label>
-                <input type="text" class="form-control" name="codi_unic_vol_reserva" value="{{ $reservas->codi_unic_vol_reserva }}" />
+                <label for="codi_unic_vol">Codi únic del vol</label>
+                <input type="text" class="form-control" readonly name="codi_unic_vol" value="{{ $reserva->codi_unic_vol }}" />
             </div>
             <div class="form-group">
                 <label for="localitzador">Localitzador</label>
-                <input type="text" class="form-control" name="localitzador" value="{{ $reservas->localitzador }}" />
+                <input type="text" class="form-control" name="localitzador" value="{{ $reserva->localitzador }}" />
             </div>
             <div class="form-group">
                 <label for="numero_seient">Número de seient</label>
-                <input type="text" class="form-control" name="numero_seient" value="{{ $reservas->numero_seient }}" />
+                <input type="text" class="form-control" name="numero_seient" value="{{ $reserva->numero_seient }}" />
             </div>
             <div class="form-group">
                 <label for="equipatge_ma">Equipatge mà</label>
-                <input type="text" class="form-control" name="equipatge_ma" value="{{ $reservas->equipatge_ma }}" />
+                <select class="form-control" name="equipatge_ma" value="{{ $reserva->equipatge_ma }}">
+                    <option value="no">No</option>
+                    <option value="si">Si</option>
+                </select>
             </div>
             <div class="form-group">
                 <label for="equipatge_cabina">Equipatge cabina</label>
-                <input type="text" class="form-control" name="equipatge_cabina" value="{{ $reservas->equipatge_cabina }}" />
+                <select class="form-control" name="equipatge_cabina" value="{{ $reserva->equipatge_cabina }}">
+                    <option value="no">No</option>
+                    <option value="si">Si</option>
+                </select>
             </div>
             <div class="form-group">
                 <label for="quantitat_equipatges_20">Quantitat d'equipatges facturats de més de 20kg</label>
-                <input type="text" class="form-control" name="quantitat_equipatges_20" value="{{ $reservas->quantitat_equipatges_20 }}" />
+                <input type="text" class="form-control" name="quantitat_equipatges_20" value="{{ $reserva->quantitat_equipatges_20 }}" />
             </div>
             <div class="form-group">
                 <label for="tipus_asseguranca">Tipus d'assegurança</label>
-                <input type="text" class="form-control" name="tipus_asseguranca" value="{{ $reservas->tipus_asseguranca }}" />
+                <select class="form-control" name="tipus_asseguranca" value="{{ $reserva->tipus_asseguranca }}">
+                    <option value="fins_1000_euros">Fins a 1000 euros</option>
+                    <option value="fins_500_euros">Fins a 500 euros</option>
+                    <option value="sense_franquicia">Sense franquicia</option> 
+                </select>
             </div>
             <div class="form-group">
                 <label for="preu_vol">Preu del vol</label>
-                <input type="text" class="form-control" name="preu_vol" value="{{ $reservas->preu_vol }}" />
+                <input type="text" class="form-control" name="preu_vol" value="{{ $reserva->preu_vol }}" />
             </div>
             <div class="form-group">
                 <label for="tipus_checking">Tipus de checking</label>
-                <input type="text" class="form-control" name="tipus_checking" value="{{ $reservas->tipus_checking }}" />
+                <select class="form-control" name="tipus_checking" value="{{ $reserva->tipus_checking }}">
+                    <option value="online">Online</option>
+                    <option value="mostrador">Mostrador</option>
+                    <option value="quiosc">Quiosc</option> 
+                </select>
             </div>
             <button type="submit" class="btn btn-block btn-danger">Actualitza</button>
         </form>

@@ -70,9 +70,9 @@ class ControladorClient extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($passaport_client)
     {
-        $client = Clients::find($id);
+        $client = Clients::findOrFail($passaport_client);
         return view('actualitzaclients', compact('client'));
     }
 
@@ -83,7 +83,7 @@ class ControladorClient extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $passaport_client)
     {
         $dades = $request->validate([
             'passaport_client' => 'required|string|max:9',
@@ -98,7 +98,7 @@ class ControladorClient extends Controller
             'numero_targeta' => 'required|integer',
         ]);
 
-        Clients::where($id)->update($dades);
+        Clients::wherepassaport_client($passaport_client)->update($dades);
         return redirect('/clients')->with('completed', 'Client actualitzat correctament');
     }
 
@@ -108,9 +108,9 @@ class ControladorClient extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($passaport_client)
     {
-        $client = Clients::findOrFail($id);
+        $client = Clients::findOrFail($passaport_client);
         $client->delete();
         return redirect('/clients')->with('completed', 'Client eliminat correctament');
     }

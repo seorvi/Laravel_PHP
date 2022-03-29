@@ -71,9 +71,9 @@ class ControladorVol extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($codi_unic_vol)
     {
-        $vol = Vol::findOrFail($id);
+        $vol = Vol::findOrFail($codi_unic_vol);
         return view('actualitza', compact('vol'));
     }
 
@@ -84,7 +84,7 @@ class ControladorVol extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $codi_unic_vol)
     {
         $dades = $request->validate([
             'codi_unic_vol' => 'required|string|max:6',
@@ -100,7 +100,7 @@ class ControladorVol extends Controller
             'Classe' => 'required|string',
         ]);
 
-        Vol::whereId($id)->update($dades);
+        Vol::wherecodi_unic_vol($codi_unic_vol)->update($dades);
         return redirect('/vols')->with('completed', 'Vol actualitzat correctament');
     }
 

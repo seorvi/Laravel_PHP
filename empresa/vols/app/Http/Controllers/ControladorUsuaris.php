@@ -66,10 +66,10 @@ class ControladorUsuaris extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($email_usuari)
     {
-        $usuari = Usuaris::find($id);
-        return view('actualitza', compact('usuari'));
+        $usuari = Usuaris::find($email_usuari);
+        return view('actualitzausuaris', compact('usuari'));
         //crear blade que se llame editausuaris
     }
 
@@ -80,7 +80,7 @@ class ControladorUsuaris extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $email_usuari)
     {
         $dades = $request->validate([
             'nom_cognoms' => 'required|string',
@@ -91,7 +91,7 @@ class ControladorUsuaris extends Controller
             'darrere_hora_sortida' => 'required|string',
         ]);
 
-        Usuaris::where($id)->update($dades);
+        Usuaris::whereemail_usuari($email_usuari)->update($dades);
         return redirect('/usuaris')->with('completed', 'Usuari actualitzat correctament');
     }
 
@@ -101,9 +101,9 @@ class ControladorUsuaris extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($email_usuari)
     {
-        $usuari = Usuaris::findOrFail($id); 
+        $usuari = Usuaris::findOrFail($email_usuari); 
         $usuari->delete();
         return redirect('/usuaris')->with('completed', 'Usuari eliminat correctament');
     }
