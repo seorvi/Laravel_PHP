@@ -22,10 +22,12 @@
               @csrf
               <label for="passaport_client_reserva">Passaport del client</label>
                 <input type="text" class="form-control" name="passaport_client_reserva" />
+                <a href="{{ route('clients.index') }}">comprovar passaports</a>
             </div>
             <div class="form-group">
                 <label for="codi_unic_vol_reserva">Codi únic del vol</label>
                 <input type="text" class="form-control" name="codi_unic_vol_reserva" />
+                <a href="{{ route('vols.index') }}">comprovar números de vol</a>
             </div>
             <div class="form-group">
                 <label for="localitzador">Localitzador</label>
@@ -73,8 +75,8 @@
                     <option value="quiosc">Quiosc</option> 
                 </select>
             </div>
-          <button type="submit" class="btn btn-block btn-primary">Envia</button>
-          <a href="{{ route('reservas.index') }}">Accés directe a la Llista de reserves</a>
+            <button type="submit" class="btn btn-primary">Envia</button>
+          <a href="{{ route('reservas.index') }}" class="btn btn-warning" style="margin-left: 10px;">Torna a la llista</a>
       </form>
   </div>
 </div>

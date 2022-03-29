@@ -46,8 +46,8 @@
               <label for="darrere_hora_sortida">Darrera hora de sortida</label>
               <input type="time" class="form-control" name="darrere_hora_sortida"/>
             </div>
-          <button type="submit" class="btn btn-block btn-primary">Envia</button>
-          <a href="{{ route('usuaris.index') }}">Accés directe a la Llista d'usuaris</a>
+            <button type="submit" class="btn btn-primary">Envia</button>
+          <a href="{{ route('usuaris.index') }}" class="btn btn-warning" style="margin-left: 10px;">Torna a la llista</a>
       </form>
   </div>
 </div>

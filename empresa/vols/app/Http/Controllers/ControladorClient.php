@@ -73,8 +73,7 @@ class ControladorClient extends Controller
     public function edit($id)
     {
         $client = Clients::find($id);
-        return view('actualitza', compact('client'));
-        //crear blade que se llame editaclients
+        return view('actualitzaclients', compact('client'));
     }
 
     /**

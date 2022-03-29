@@ -62,8 +62,8 @@
               <label for="numero_targeta">Número de targeta</label>
               <input type="text" class="form-control" name="numero_targeta"/>
             </div>
-          <button type="submit" class="btn btn-block btn-primary">Envia</button>
-          <a href="{{ route('clients.index') }}">Accés directe a la Llista de clients</a>
+            <button type="submit" class="btn btn-primary">Envia</button>
+          <a href="{{ route('clients.index') }}" class="btn btn-warning" style="margin-left: 10px;">Torna a la llista</a>
       </form>
   </div>
 </div>
