@@ -4,8 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Usuaris extends Model
+
+class Usuaris extends Authenticatable
 {
     public $timestamps = false;
     public $primaryKey = "email_usuari";
@@ -15,7 +17,7 @@ class Usuaris extends Model
     protected $fillable = [
         'nom_cognoms',
         'email_usuari',
-        'contrasenya_usuari',
+        'password',
         'tipus',
         'darrere_hora_entrada',
         'darrere_hora_sortida'

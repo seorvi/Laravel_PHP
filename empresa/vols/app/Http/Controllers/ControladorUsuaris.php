@@ -39,7 +39,7 @@ class ControladorUsuaris extends Controller
         $nouUsuari = $request->validate([
             'nom_cognoms' => 'required|string',
             'email_usuari' => 'required|email',
-            'contrasenya_usuari' => 'required|string',
+            'password' => 'required|string',
             'tipus' => 'required|string',
             'darrere_hora_entrada' => 'required|string',
             'darrere_hora_sortida' => 'required|string',

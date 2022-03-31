@@ -30,8 +30,8 @@
                 <input type="email" class="form-control" name="email_usuari" value="{{ $usuari->email_usuari }}" />
             </div>
             <div class="form-group">
-                <label for="contrasenya_usuari">Contrasenya</label>
-                <input type="password" class="form-control" name="contrasenya_usuari" value="{{ $usuari->contrasenya_usuari }}" />
+                <label for="password">Contrasenya</label>
+                <input type="password" class="form-control" name="password" value="{{ $usuari->password }}" />
             </div>
             <div class="form-group">
                 <label for="tipus">Tipus</label>

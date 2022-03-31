@@ -26,7 +26,7 @@
         <tr>
             <td>{{$usu->nom_cognoms}}</td>
             <td>{{$usu->email_usuari}}</td>
-            <td>{{$usu->contrasenya_usuari}}</td>
+            <td>{{$usu->password}}</td>
             <td>{{$usu->tipus}}</td>
             <td>{{$usu->darrere_hora_entrada}}</td>
             <td>{{$usu->darrere_hora_sortida}}</td>

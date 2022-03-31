@@ -28,8 +28,8 @@
               <input type="text" class="form-control" name="email_usuari"/>
             </div>
             <div>
-              <label for="contrasenya_usuari">Contrasenya</label>
-              <input type="password" class="form-control" name="contrasenya_usuari"/>
+              <label for="password">Contrasenya</label>
+              <input type="password" class="form-control" name="password"/>
             </div>
             <div>
               <label for="tipus">Tipus</label>
