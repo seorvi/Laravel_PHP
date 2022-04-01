@@ -22,7 +22,7 @@
             <td>Email</td>
             <td>Tipus de targeta</td>
             <td>Numero de targeta</td>
-            <td>Accions</td>
+            <td colspan="3">Accions</td>
         </tr>
     </thead>
     <tbody>
@@ -48,6 +48,9 @@
                     <button class="btn btn-danger btn-sm" type="submit">Esborra</button>
                   </form>
                   </td>
+                  <td>
+                    <button class="btn btn-primary btn-sm" type="submit">PDF</button>
+                  </td>
             </td>
         </tr>
         @endforeach
@@ -55,4 +58,6 @@
   </table>
 <div>
 <br><a href="{{ url('clients/create') }}">Accés directe a la vista de creació de clients</a>
+<br><a href="{{ url('reservas') }}">Accés directe a la Llista de reserves</a>
+<br><a href="{{ url('welcome') }}">Accés directe al menú</a>
 @endsection

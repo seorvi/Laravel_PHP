@@ -12,7 +12,7 @@
   <table class="table">
     <thead>
         <tr class="table-primary">
-          <td>Passaport del client<td>
+          <td>Passaport del client</td>
             <td>Codi únic del vol</td>
             <td>Localitzador</td>
             <td>Número de seient</td>
@@ -22,7 +22,7 @@
             <td>Tipus d'assegurançaa</td>
             <td>Preu del vol</td>
             <td>Tipus de checking</td>
-            <td>Accions</td>
+            <td colspan="2">Accions</td>
         </tr>
     </thead>
     <tbody>
@@ -38,15 +38,14 @@
             <td>{{$rese->tipus_asseguranca}}</td>
             <td>{{$rese->preu_vol}}</td>
             <td>{{$rese->tipus_checking}}</td>
-            <td class="text-left">
-                <a href="{{ route('reservas.edit', $rese->codi_unic_vol)}}" class="btn btn-success btn-sm">Edita</a>
-              </td>
               <td class="text-left">
+                <a href="{{ route('reservas.edit', $rese->codi_unic_vol)}}" class="btn btn-success btn-sm">Edita</a>
                 <form action="{{ route('reservas.destroy', $rese->codi_unic_vol)}}" method="post" style="display: inline-block">
                     @csrf
                     @method('DELETE')
-                    <button class="btn btn-danger btn-sm" type="submit">Esborra</button>
+                  <button class="btn btn-danger btn-sm" type="submit">Esborra</button>
                   </form>
+                  <button class="btn btn-primary btn-sm" type="submit">PDF</button>
               </td>
             </td>
         </tr>
@@ -55,4 +54,6 @@
   </table>
 <div>
 <br><a href="{{ url('reservas/create') }}">Accés directe a la vista de creació de reserves</a>
+<br><a href="{{ url('clients') }}">Accés directe a la Llista de clients</a>
+<br><a href="{{ url('welcome') }}">Accés directe al menú</a>
 @endsection

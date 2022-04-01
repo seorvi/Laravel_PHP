@@ -18,7 +18,7 @@
             <td>Tipus</td>
             <td>Darrera hora d'entrada</td>
             <td>Darrera hora de sortida</td>
-            <td>Accions</td>
+            <td colspan="3">Accions</td>
         </tr>
     </thead>
     <tbody>
@@ -40,6 +40,9 @@
                     <button class="btn btn-danger btn-sm" type="submit">Esborra</button>
                   </form>
                 </td>
+                <td>
+                    <button class="btn btn-primary btn-sm" type="submit">PDF</button>
+                    </td>
             </td>
         </tr>
         @endforeach
@@ -47,4 +50,5 @@
   </table>
 <div>
 <br><a href="{{ url('usuaris/create') }}">Accés directe a la vista de creació d'usuaris</a>
+<br><a href="{{ url('welcome') }}">Accés directe al menú</a>
 @endsection

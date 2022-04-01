@@ -1,6 +1,17 @@
 @extends('disseny')
 
 @section('content')
+<?php
+
+use App\Models\Vol;
+
+$voll = Vol::where('codi_unic_vol', $codi_unic_vol)->first();
+$dades = unserialize ($voll->dades_vol);
+
+
+
+?>
+
 
 <h1>Llista de vols</h1>
 <div class="mt-5">
@@ -23,11 +34,9 @@
           <td>Hora de sortida</td>
           <td>Hora d'arribada</td>
           <td>Classe</td>
-          <td colspan="3">Accions</td>
         </tr>
     </thead>
     <tbody>
-        @foreach($vol as $voll)
         <tr>
             <td>{{$voll->codi_unic_vol}}</td>
             <td>{{$voll->model_avio}}</td>
@@ -40,25 +49,8 @@
             <td>{{$voll->hora_sortida}}</td>
             <td>{{$voll->hora_arribada}}</td>
             <td>{{$voll->Classe}}</td>
-            <td class="text-left">
-                <a href="{{ route('vols.edit', $voll->codi_unic_vol)}}" class="btn btn-success btn-sm">Edita</a>
-              </td>
-              <td class="text-left">
-                <form action="{{ route('vols.destroy', $voll->codi_unic_vol)}}" method="post" style="display: inline-block">
-                    @csrf
-                    @method('DELETE')
-                    <button class="btn btn-danger btn-sm" type="submit">Esborra</button>
-                  </form>
-                  </td>
-                  <td>
-                    <a href="{{ url('volspdf', $voll->codi_unic_vol)}}" class="btn btn-primary btn-sm">PDF</a>
-                  </td>
-            </td>
         </tr>
-        @endforeach
     </tbody>
   </table>
 <div>
-<br><a href="{{ url('vols/create') }}">Accés directe a la vista de creació de vols</a>
-<br><a href="{{ url('welcome') }}">Accés directe al menú</a>
 @endsection

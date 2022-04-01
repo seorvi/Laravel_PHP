@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Clients;
+use PDF;
 
 class ControladorClient extends Controller
 {

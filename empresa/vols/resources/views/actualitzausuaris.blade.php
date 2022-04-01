@@ -52,5 +52,5 @@
         </form>
     </div>
 </div>
-<br><a href="{{ url('usuaris') }}">Accés directe a la Llista d'usuaris</a
+<br><a href="{{ url('usuaris') }}">Accés directe a la Llista d'usuaris</a>
 @endsection

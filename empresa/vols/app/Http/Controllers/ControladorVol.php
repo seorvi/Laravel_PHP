@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Vol;
+use PDF;
+
 
 class ControladorVol extends Controller
 {
@@ -116,4 +118,24 @@ class ControladorVol extends Controller
         $vol->delete();
         return redirect('/vols')->with('completed', 'Vol eliminat correctament');
     }
+
+    //crear funcion para generar un PDF
+
+    public function generarPDF($id){
+        $vol = Vol::findOrFail($id);
+        if($vol){
+            $codi_unic_vol = $vol->codi_unic_vol;
+            $pdf = PDF::loadView('pdfvols', compact('codi_unic_vol'));
+            //generar pdf A3
+            return $pdf->setPaper('a3', 'landscape')->download('vol.pdf');
+        }
+        $pdf = PDF::loadView('pdfvols', compact('vol'));
+        return $pdf->download('vol.pdf');
+    }
 }
+
+//cambiar el controlador y poner una funcion de pdf
+//crear una vista pdfclients.blade.php
+//poner la ruta dentro de la vista de index 
+//añadir boton pdf
+// cambiar el web.php

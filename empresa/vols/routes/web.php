@@ -26,6 +26,8 @@ Route::resource('clients', ControladorClient::class);
 Route::resource('usuaris', ControladorUsuaris::class);
 Route::resource('reservas', ControladorReserva::class);
 
+Route::get('/volspdf/{id}', 'ControladorVol@generarPDF')->name('vol.pdf');
+
 Route::get('/login', function () {
     return view('login');
 })->name('login');
@@ -45,7 +47,7 @@ Route::post('/login', function (Request $request) {
     }
 
     return redirect()->back()->withErrors([
-        'credentials' => 'No s\'ha pogut iniciar la sessió'
+        'credentials' => 'No s\'ha pogut iniciar la sessió degut a que l\'usuari no existeix'
     ]);
 });
 

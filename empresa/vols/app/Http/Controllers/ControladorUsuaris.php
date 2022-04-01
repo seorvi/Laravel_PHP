@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Usuaris;
+use PDF;
+use Illuminate\Support\Facades\Hash;
 
 class ControladorUsuaris extends Controller
 {
@@ -44,7 +46,14 @@ class ControladorUsuaris extends Controller
             'darrere_hora_entrada' => 'required|string',
             'darrere_hora_sortida' => 'required|string',
         ]);
-        $usuari = Usuaris::create($nouUsuari);
+        Usuaris::create([
+            'nom_cognoms' => $nouUsuari['nom_cognoms'],
+            'email_usuari' => $nouUsuari['email_usuari'],
+            'password' => Hash::make($nouUsuari['password']),
+            'tipus' => $nouUsuari['tipus'],
+            'darrere_hora_entrada' => $nouUsuari['darrere_hora_entrada'],
+            'darrere_hora_sortida' => $nouUsuari['darrere_hora_sortida'],
+        ]);
 
         return redirect('/usuaris')->with('completed', 'Usuari creat correctament');
     }

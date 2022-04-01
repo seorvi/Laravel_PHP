@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Reserva;
+use PDF;
 
 class ControladorReserva extends Controller
 {
