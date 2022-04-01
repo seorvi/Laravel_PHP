@@ -41,8 +41,8 @@
                   </form>
                 </td>
                 <td>
-                    <button class="btn btn-primary btn-sm" type="submit">PDF</button>
-                    </td>
+                  <a href="{{ url('usuarispdf', $usu->email_usuari)}}" class="btn btn-primary btn-sm">PDF</a>
+                </td>
             </td>
         </tr>
         @endforeach

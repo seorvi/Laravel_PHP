@@ -116,4 +116,16 @@ class ControladorUsuaris extends Controller
         $usuari->delete();
         return redirect('/usuaris')->with('completed', 'Usuari eliminat correctament');
     }
+
+    public function generarPDF($id){
+        $usuari = Usuaris::findOrFail($id);
+        if($usuari){
+            $email_usuari = $usuari->email_usuari;
+            $pdf = PDF::loadView('pdfusuaris', compact('email_usuari'));
+            //generar pdf A3
+            return $pdf->setPaper('a3', 'landscape')->download('usuari.pdf');
+        }
+        $pdf = PDF::loadView('pdfusuaris', compact('usuari'));
+        return $pdf->download('usuari.pdf');
+    }
 }

@@ -116,5 +116,19 @@ class ControladorReserva extends Controller
         $reserva->delete();
         return redirect('/reservas')->with('completed', 'Reserva eliminada correctament');
     }
+
+    //crear funcion para generar un PDF
+
+    public function generarPDF($id){
+        $rese = Reserva::findOrFail($id);
+        if($rese){
+            $codi_unic_vol = $rese->codi_unic_vol;
+            $pdf = PDF::loadView('pdfreservas', compact('codi_unic_vol'));
+            //generar pdf A3
+            return $pdf->setPaper('a3', 'landscape')->download('reserva.pdf');
+        }
+        $pdf = PDF::loadView('pdfreservas', compact('reserva'));
+        return $pdf->download('reserva.pdf');
+    }
 }
 

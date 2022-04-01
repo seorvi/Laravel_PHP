@@ -27,6 +27,9 @@ Route::resource('usuaris', ControladorUsuaris::class);
 Route::resource('reservas', ControladorReserva::class);
 
 Route::get('/volspdf/{id}', 'ControladorVol@generarPDF')->name('vol.pdf');
+Route::get('/usuarispdf/{id}', 'ControladorUsuaris@generarPDF')->name('usuari.pdf');
+Route::get('/clientspdf/{id}', 'ControladorClient@generarPDF')->name('client.pdf');
+Route::get('/reservaspdf/{id}', 'ControladorReserva@generarPDF')->name('reserva.pdf');
 
 Route::get('/login', function () {
     return view('login');

@@ -2,6 +2,15 @@
 
 @section('content')
 
+<?php
+
+use App\Models\Clients;
+
+$cli = Clients::where('passaport_client', $passaport_client)->first();
+$dades = unserialize ($cli->dades_client);
+
+?>
+
 <h1>Llista de clients</h1>
 <div class="mt-5">
   @if(session()->get('success'))
@@ -26,7 +35,6 @@
         </tr>
     </thead>
     <tbody>
-        @foreach($client as $cli)
         <tr>
             <td>{{$cli->passaport_client}}</td>
             <td>{{$cli->nom_client}}</td>
@@ -38,26 +46,8 @@
             <td>{{$cli->email_client}}</td>
             <td>{{$cli->tipus_targeta}}</td>
             <td>{{$cli->numero_targeta}}</td>
-            <td class="text-left">
-                <a href="{{ route('clients.edit', $cli->passaport_client)}}" class="btn btn-success btn-sm">Edita</a>
-              </td>
-              <td class="text-left">
-                <form action="{{ route('clients.destroy', $cli->passaport_client)}}" method="post" style="display: inline-block">
-                    @csrf
-                    @method('DELETE')
-                    <button class="btn btn-danger btn-sm" type="submit">Esborra</button>
-                  </form>
-                  </td>
-                  <td>
-                    <a href="{{ url('clientspdf', $cli->passaport_client)}}" class="btn btn-primary btn-sm">PDF</a>
-                  </td>
-            </td>
         </tr>
-        @endforeach
     </tbody>
   </table>
 <div>
-<br><a href="{{ url('clients/create') }}">Accés directe a la vista de creació de clients</a>
-<br><a href="{{ url('reservas') }}">Accés directe a la Llista de reserves</a>
-<br><a href="{{ url('welcome') }}">Accés directe al menú</a>
 @endsection

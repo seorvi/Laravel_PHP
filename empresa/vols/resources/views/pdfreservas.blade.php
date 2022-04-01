@@ -2,6 +2,15 @@
 
 @section('content')
 
+<?php
+
+use App\Models\Reserva;
+
+$rese = Reserva::where('codi_unic_vol', $codi_unic_vol)->first();
+$dades = unserialize ($rese->dades_client);
+
+?>
+
 <h1>Llista de reserves</h1>
 <div class="mt-5">
   @if(session()->get('success'))
@@ -26,7 +35,6 @@
         </tr>
     </thead>
     <tbody>
-        @foreach($reserva as $rese)
         <tr>
             <td>{{$rese->passaport_client}}</td>
             <td>{{$rese->codi_unic_vol}}</td>
@@ -38,22 +46,8 @@
             <td>{{$rese->tipus_asseguranca}}</td>
             <td>{{$rese->preu_vol}}</td>
             <td>{{$rese->tipus_checking}}</td>
-              <td class="text-left">
-                <a href="{{ route('reservas.edit', $rese->codi_unic_vol)}}" class="btn btn-success btn-sm">Edita</a>
-                <form action="{{ route('reservas.destroy', $rese->codi_unic_vol)}}" method="post" style="display: inline-block">
-                    @csrf
-                    @method('DELETE')
-                  <button class="btn btn-danger btn-sm" type="submit">Esborra</button>
-                  </form>
-                  <a href="{{ url('reservaspdf', $rese->codi_unic_vol)}}" class="btn btn-primary btn-sm">PDF</a>
-              </td>
-            </td>
         </tr>
-        @endforeach
     </tbody>
   </table>
 <div>
-<br><a href="{{ url('reservas/create') }}">Accés directe a la vista de creació de reserves</a>
-<br><a href="{{ url('clients') }}">Accés directe a la Llista de clients</a>
-<br><a href="{{ url('welcome') }}">Accés directe al menú</a>
 @endsection

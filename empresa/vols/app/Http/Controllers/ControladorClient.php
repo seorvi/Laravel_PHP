@@ -115,4 +115,18 @@ class ControladorClient extends Controller
         $client->delete();
         return redirect('/clients')->with('completed', 'Client eliminat correctament');
     }
+
+    //crear funcion para generar un PDF
+
+    public function generarPDF($id){
+        $client = Clients::findOrFail($id);
+        if($client){
+            $passaport_client = $client->passaport_client;
+            $pdf = PDF::loadView('pdfclients', compact('passaport_client'));
+            //generar pdf A3
+            return $pdf->setPaper('a3', 'landscape')->download('client.pdf');
+        }
+        $pdf = PDF::loadView('pdfclients', compact('client'));
+        return $pdf->download('client.pdf');
+    }
 }
