@@ -19,7 +19,7 @@ $dades = unserialize ($usu->dades_usuari);
       {{ session()->get('success') }}  
     </div>
   @endif
-  <table class="table">
+  <table class="center">
     <thead>
         <tr class="table-primary">
           <td>Nom</td>

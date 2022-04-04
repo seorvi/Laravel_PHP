@@ -20,7 +20,7 @@ $dades = unserialize ($voll->dades_vol);
       {{ session()->get('success') }}  
     </div>
   @endif
-  <table class="table">
+  <table class="center">
     <thead>
         <tr class="table-primary">
           <td>Codi unic de vol</td>

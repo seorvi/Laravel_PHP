@@ -18,7 +18,7 @@ $dades = unserialize ($rese->dades_client);
       {{ session()->get('success') }}  
     </div>
   @endif
-  <table class="table">
+  <table class="center">
     <thead>
         <tr class="table-primary">
           <td>Passaport del client</td>

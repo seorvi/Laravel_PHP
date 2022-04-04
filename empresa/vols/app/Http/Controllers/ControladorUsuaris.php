@@ -91,14 +91,17 @@ class ControladorUsuaris extends Controller
      */
     public function update(Request $request, $email_usuari)
     {
-        $dades = $request->validate([
+        $this->validate($request,[
             'nom_cognoms' => 'required|string',
             'email_usuari' => 'required|email',
-            'contrasenya_usuari' => 'required|string',
+            'password' => 'required|string',
             'tipus' => 'required|string',
             'darrere_hora_entrada' => 'required|string',
             'darrere_hora_sortida' => 'required|string',
         ]);
+
+        $dades = $request -> only(['nom_cognom','email_usuari','password','tipus', 'darrere_hora_entrada', 'darrere_hora_sortida']);
+        $dades['password'] = Hash::make($dades['password']);
 
         Usuaris::whereemail_usuari($email_usuari)->update($dades);
         return redirect('/usuaris')->with('completed', 'Usuari actualitzat correctament');

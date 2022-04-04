@@ -29,7 +29,7 @@
             </div>
             <div>
               <label for="password">Contrasenya</label>
-              <input type="password" class="form-control" name="password"/>
+              <input type="text" class="form-control" name="password"/>
             </div>
             <div>
               <label for="tipus">Tipus</label>
